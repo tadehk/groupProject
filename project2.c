@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "header.h"
 
 //method that counts the number of days on vacation
 float numOfDays(){
@@ -49,12 +49,4 @@ float carRental(){
     printf("\n How much is your car rental going to cost? ");
     scanf("%f", carCost);
     return carCost;
-}
-
-float main  () {    
-    numOfDays();
-    timeOfDepart();
-    timeOfArrival();
-    return 0.00;
-    
 }
