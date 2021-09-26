@@ -6,4 +6,7 @@ float timeOfDepart();
 float timeOfArrival();
 float airFare();
 float carRental();
+float conferenceFees();
+float hotelFees(int nightsStayed, float *totalAllowableExpenses);
+float mealFees(int numDays, float departTime, float arriveTime, float *totalAllowableExpenses);
 #endif
