@@ -4,17 +4,25 @@
 //method that gets the expense of the private if used
 float privateCarExpense()
 {
-    float carCostPerMile;
-    printf("\nHow many miles did you drive with your private vehicle?");
-    scanf("%f", carCostPerMile);
-    if (carCostPerMile <= 0)
-    {
-        printf("Invalid Input!");
+    float carCostPerMile = -1;
+    while (carCostPerMile < 0) {
+
+        printf("\nHow many miles did you drive with your private vehicle?");
+        scanf("%f", carCostPerMile);
+
+        if (carCostPerMile <= 0)
+        {
+            printf("Invalid Input!");
+        }
+        else
+        {
+            printf("You entered: %f\n", carCostPerMile);
+            carCostPerMile = carCostPerMile * 0.37;
+        }
     }
-    else
-    {
-        return carCostPerMile * 0.37;
-    }
+            return carCostPerMile;
+
+  
 }
 
 //method that gets the total Parking Fees
