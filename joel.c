@@ -7,9 +7,9 @@ float privateCarExpense()
     float carCostPerMile;
     printf("\nHow many miles did you drive with your private vehicle?");
     scanf("%f", carCostPerMile);
-    if (carCostPerMile < 0)
+    if (carCostPerMile <= 0)
     {
-        printf("invalid input!");
+        printf("Invalid Input!");
     }
     else
     {
@@ -21,12 +21,36 @@ float privateCarExpense()
 float parkingFees()
 {
     float daysParked;
-    float parkingFeePerDay;
+    float parkingFee;
+    float counter;
     printf("How many days did you park?");
-    scanf("%f", daysParked);
-    printf("\nHow much was your parking fee per day");
-    scanf("%f", parkingFeePerDay);
-    return (parkingFeePerDay - 6) * daysParked;
+    if (daysParked <= 0)
+    {
+        printf("Invalid Input!");
+    }
+    else
+    {
+        scanf("%f", daysParked);
+        for (float i = 0; i < daysParked; i++)
+        {
+            printf("Parking Fee for day #%f", i + 1);
+            scanf("%f", parkingFee);
+            if (parkingFee <= 0)
+            {
+                printf("Invalid Input!");
+                i -= 1;
+            }
+            else if (parkingFee > 6)
+            {
+                counter += parkingFee - 6;
+            }
+            else if (parkingFee <= 6)
+            {
+                counter += parkingFee;
+            }
+        }
+        return counter;
+    }
 }
 
 //method that gets the total Taxi Fees
