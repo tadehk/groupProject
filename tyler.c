@@ -73,7 +73,7 @@ float mealFees(int numDays, float departTime, float arriveTime, float *totalAllo
             allowableMeals = allowableMeals + 2;
             allowedExpense = allowedExpense + breakfast + lunch;
         }
-        else if (arriveTime > 0800)
+        else if (arriveTime > 800)
         {
             allowableMeals = allowableMeals + 1;
             allowedExpense = allowedExpense + breakfast;

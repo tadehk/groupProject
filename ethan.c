@@ -28,12 +28,13 @@ float timeOfDepart(){
 //method that gets the time of arrival
 float timeOfArrival(){
     float timeA;
-    printf("\n What time are you arriving? Enter departure time in 24 hour format.");
+    printf("\n What time are you arriving? Enter arrival time in 24 hour format.");
     scanf("%f", timeA);
     if (timeA<0){
         printf("Time can not be less than 0, please try again.");
         timeOfArrival();
     }
+    printf("The time you entered is: %f", timeA);
     return timeA;
 }
 //method that gets the airfare
