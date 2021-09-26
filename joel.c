@@ -10,6 +10,7 @@ float privateCarExpense()
     if (carCostPerMile <= 0)
     {
         printf("Invalid Input!");
+        privateCarExpense();
     }
     else
     {
@@ -18,26 +19,28 @@ float privateCarExpense()
 }
 
 //method that gets the total Parking Fees
-float parkingFees()
+float parkingFees(float *totalAllowableExpenses)
 {
     float daysParked;
     float parkingFee;
     float counter;
-    printf("How many days did you park?");
+    printf("\nHow many days did you park?");
+    scanf("%f", daysParked);
     if (daysParked <= 0)
     {
-        printf("Invalid Input!");
+        printf("\nInvalid Input!");
+        parkingFees(totalAllowableExpenses);
     }
     else
     {
-        scanf("%f", daysParked);
+        *totalAllowableExpenses += daysParked * 6;
         for (float i = 0; i < daysParked; i++)
         {
-            printf("Parking Fee for day #%f", i + 1);
+            printf("\nParking Fee for Day #%f", i + 1);
             scanf("%f", parkingFee);
             if (parkingFee <= 0)
             {
-                printf("Invalid Input!");
+                printf("\nInvalid Input!");
                 i -= 1;
             }
             else if (parkingFee > 6)
@@ -54,13 +57,47 @@ float parkingFees()
 }
 
 //method that gets the total Taxi Fees
-float taxiFees()
+float taxiFees(float *totalAllowableExpenses)
 {
+    // float daysTaxiUsed;
+    // float taxiFeePerDay;
+    // printf("\nHow many days did you park?");
+    // scanf("%f", daysTaxiUsed);
+    // printf("\nHow much was your parking fee per day");
+    // scanf("%f", taxiFeePerDay);
+    // return (taxiFeePerDay - 10) * daysTaxiUsed;
+
     float daysTaxiUsed;
     float taxiFeePerDay;
-    printf("How many days did you park?");
+    float counter;
+    printf("\nHow many days did you use a taxi?");
     scanf("%f", daysTaxiUsed);
-    printf("\nHow much was your parking fee per day");
-    scanf("%f", taxiFeePerDay);
-    return (taxiFeePerDay - 10) * daysTaxiUsed;
+    if (daysTaxiUsed <= 0)
+    {
+        printf("\nInvalid Input!");
+        parkingFees(totalAllowableExpenses);
+    }
+    else
+    {
+        *totalAllowableExpenses += daysTaxiUsed * 10;
+        for (float i = 0; i < daysTaxiUsed; i++)
+        {
+            printf("\nTaxi Fee for Day #%f", i + 1);
+            scanf("%f", taxiFeePerDay);
+            if (taxiFeePerDay <= 0)
+            {
+                printf("\nInvalid Input!");
+                i -= 1;
+            }
+            else if (taxiFeePerDay > 10)
+            {
+                counter += taxiFeePerDay - 10;
+            }
+            else if (taxiFeePerDay <= 10)
+            {
+                counter += taxiFeePerDay;
+            }
+        }
+        return counter;
+    }
 }
