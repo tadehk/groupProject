@@ -2,11 +2,13 @@
 #include "header.h"
 
 //method that counts the number of days on vacation
-float numOfDays(){
+float numOfDays()
+{
     float days;
     printf("Please enter the number of days you are going on vacation: ");
     scanf("%f", &days);
-    if (days<1){
+    if (days < 1)
+    {
         printf("Invalid number of days, please try again.\n");
         numOfDays();
     }
@@ -14,11 +16,13 @@ float numOfDays(){
     return days;
 }
 //method that gets the time of departure
-float timeOfDepart(){
+float timeOfDepart()
+{
     float timeD;
     printf("\nWhat time are you leaving? Enter departure time in 24 hour format. ");
     scanf("%f", &timeD);
-    if (timeD<0){
+    if (timeD < 0)
+    {
         printf("Time can not be less than 0, please try agian.");
         timeOfDepart();
     }
@@ -26,27 +30,71 @@ float timeOfDepart(){
     return timeD;
 }
 //method that gets the time of arrival
-float timeOfArrival(){
+float timeOfArrival()
+{
     float timeA;
     printf("\n What time are you arriving? Enter departure time in 24 hour format.");
     scanf("%f", timeA);
-    if (timeA<0){
+    if (timeA < 0)
+    {
         printf("Time can not be less than 0, please try again.");
         timeOfArrival();
     }
     return timeA;
 }
 //method that gets the airfare
-float airFare(){
+float airFare()
+{
     float planeCost;
     printf("\n How much is your plane ticket going to cost round-trip? ");
     scanf("%f", planeCost);
     return planeCost;
 }
 //method that gets the car rental cost
-float carRental(){
+float carRental()
+{
     float carCost;
     printf("\n How much is your car rental going to cost? ");
     scanf("%f", carCost);
     return carCost;
+}
+
+//method that gets the expense of the private if used
+float privateCarExpense()
+{
+    float carCostPerMile;
+    printf("\nHow many miles did you drive with your private vehicle?");
+    scanf("%f", carCostPerMile);
+    if (carCostPerMile < 0)
+    {
+        printf("invalid input!");
+    }
+    else
+    {
+        return carCostPerMile * 0.37;
+    }
+}
+
+//method that gets the total Parking Fees
+float parkingFees()
+{
+    float daysParked;
+    float parkingFeePerDay;
+    printf("How many days did you park?");
+    scanf("%f", daysParked);
+    printf("\nHow much was your parking fee per day");
+    scanf("%f", parkingFeePerDay);
+    return (parkingFeePerDay - 6) * daysParked;
+}
+
+//method that gets the total Taxi Fees
+float taxiFees()
+{
+    float daysTaxiUsed;
+    float taxiFeePerDay;
+    printf("How many days did you park?");
+    scanf("%f", daysTaxiUsed);
+    printf("\nHow much was your parking fee per day");
+    scanf("%f", taxiFeePerDay);
+    return (taxiFeePerDay - 10) * daysTaxiUsed;
 }
