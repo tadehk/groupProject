@@ -5,8 +5,8 @@
 float conferenceFees()
 {
     float conferenceCost;
-    printf("\n Enter total cost for conferences and seminars: $");
-    scanf("%f", conferenceCost);
+    printf("\nEnter total cost for conferences and seminars: $");
+    scanf("%f", &conferenceCost);
     return conferenceCost;
 }
 
@@ -17,8 +17,8 @@ float hotelFees(int nightsStayed, float *totalAllowableExpenses)
     float hotelCost;
     float companyHotel = 90.0;
     *totalAllowableExpenses = *totalAllowableExpenses + (companyHotel * nightsStayed);
-    printf("\n Enter total cost of hotel per night: $");
-    scanf("%f", hotelCost);
+    printf("\nEnter total cost of hotel per night: $");
+    scanf("%f", &hotelCost);
     hotelCost = hotelCost*nightsStayed;
     return hotelCost;
 }
@@ -45,7 +45,7 @@ float mealFees(int numDays, float departTime, float arriveTime, float *totalAllo
     float lunch = 12.0;
     float dinner = 16.0;
 
-    if (departTime < 0700)
+    if (departTime < 700)
     {
         allowableMeals = allowableMeals + 3;
         allowedExpense = allowedExpense + breakfast + lunch + dinner;
@@ -88,7 +88,7 @@ float mealFees(int numDays, float departTime, float arriveTime, float *totalAllo
     float price, mealCost;
     for (i = 1; i <= allowableMeals; i++)
     {
-        printf("Meal number %d cost: $", i);
+        printf("\nMeal number %d cost: $", i);
         scanf("%f", &price);
         mealCost = mealCost + price;
     }
